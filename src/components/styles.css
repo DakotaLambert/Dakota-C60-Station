@@ -1,0 +1,111 @@
+/* Items */
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-card {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-img {
+  height: 20rem;
+  width: 20rem;
+  margin: 1rem;
+  box-shadow: 4px 3px 4px gray;
+  cursor: pointer;
+}
+
+.item-img:hover {
+  box-shadow: 3px 2px 3px gray;
+}
+
+.item-name {
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Item Details */
+
+.item-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-detail-name {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
+.item-details {
+  font-size: 1.25rem;
+  font-family: monospace;
+}
+
+/* Filter */
+
+#season-select {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-left: 2rem;
+
+}
+
+/* Form */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+fieldset {
+  width: 90%;
+  margin: 1rem;
+  border-radius: 9px;
+  box-shadow: 2px 2px 5px -1px grey;
+  border-style: none;
+  background-color: whitesmoke;
+  font-size: 1.10rem;
+  padding: 1rem;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 4px -1px grey;
+  background-color: darksalmon;
+  border: none;
+  color: white;
+  border-radius: 7px;
+}
+
+.form-group {
+  margin: 1rem
+}
+
+form label {
+  margin-right: 1rem
+}
+
+form .radio {
+  margin: 0.25rem
+}
+
+form input {
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 6px;
+  border-style: double;
+}
