@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import "./DecorationStation.css";
+import { ItemList } from "./ItemList";
+import { NewDecorationForm } from "./NewDecorationForm";
+import { SeasonFilter } from "./SeasonFilter";
 
 export const DecorationStation = () => {
+
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [seasons, setSeasons] = useState([]);
   const [seasonChoice, setSeasonChoice] = useState(0);
+  
 
   useEffect(() => {
     fetch(`http://localhost:8088/items`)
@@ -21,7 +26,6 @@ export const DecorationStation = () => {
       });
   }, []);
 
-
   useEffect(() => {
     if (seasonChoice === 0) {
       setFilteredItems(items);
@@ -36,34 +40,15 @@ export const DecorationStation = () => {
 
   return (
     <>
-      <select
-        onChange={(event) => {
-          setSeasonChoice(parseInt(event.target.value));
-        }}
-      >
-        <option value={0}>Choose a Season</option>
-        {seasons.map((seasonObj) => {
-          return (
-            <option key={seasonObj.id} value={seasonObj.id}>
-              {seasonObj.name}
-            </option>
-          );
-        })}
-      </select>
-      <div className="item-container">
-        {filteredItems.map((itemObj) => {
-          return (
-            <div key={itemObj.id} className="item-card">
-              <img
-                src={itemObj.imageUrl}
-                alt={itemObj.name}
-                className="item-img"
-              ></img>
-              <div className="item-name">{itemObj.name}</div>
-            </div>
-          );
-        })}
-      </div>
+      <NewDecorationForm
+        seasonsFromDecStation={seasons}
+        setItems={setItems}
+      />
+      <SeasonFilter
+        theSeasonsFromDecStation={seasons}
+        setSeasonChoicesFromDecStation={setSeasonChoice}
+      />
+      <ItemList theFilteredItemsFromDecStation={filteredItems} />
     </>
   );
 };
