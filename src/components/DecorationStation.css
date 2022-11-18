@@ -92,3 +92,7 @@ form input {
   border-radius: 6px;
   border-style: double;
 }
+
+ul {
+  list-style: none;
+}
